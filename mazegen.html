@@ -21,7 +21,7 @@
 		Before we discuss the algorithm, let's take a step back and discuss methods for encoding mazes. If there is one thing you take away from this discussion, it is that <b>mazes are graphs</b> and while you may interpret graphs as the cartesian plane, graphs are more generally a "bunch of dots" and "lines between the dots". 
 		<span class="marginnote" style="margin-top: 10;"> 
 			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/2D_Cartesian_Coordinates.svg/376px-2D_Cartesian_Coordinates.svg.png">
-			<b>Pictured</b>: the Cartesian plane, or coordinate system. The space where we project visual representations of curves, lines, and shapes in 2 (or less) dimensions, as well as our irrational hatred of calculus.
+			<b>Pictured</b>: the Cartesian plane, or coordinate system. The space where we project visual representations of curves, lines, and shapes in 2 dimensions (or less), as well as our irrational hatred of grade school math class.
 		</span>
 		These dots and lines are more formally called <b>vertices</b> and <b>edges</b>. In this paticular case these mazes are trees (graphs with no loops) and therefore:
 		<blockquote> Mazes &#65515; Trees &#65515; Graphs. </blockquote>
@@ -44,6 +44,9 @@
 		If we had a 4x4 Matrix, this could be converted into a Vector containing 16 values.
 		Almost all programming languages index their arrays at 0 so this vector would contain the indices 0 - 15.
 		How do we transition between 2D coordinates and the single dimension coordinates of the cell? 
+	</p>
+
+	<p>
 		Easy, given (x, y, n) where x is the column-number and y is row-number and n is the length of the side of the matrix.
 	</p>
 
