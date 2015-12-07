@@ -21,7 +21,7 @@
 		Before we discuss the algorithm, let's take a step back and discuss methods for encoding mazes. If there is one thing you take away from this discussion, it is that <b>mazes are graphs</b> and while you may interpret graphs as the cartesian plane, graphs are more generally a "bunch of dots" and "lines between the dots". 
 		<span class="marginnote" style="margin-top: 10;"> 
 			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/2D_Cartesian_Coordinates.svg/376px-2D_Cartesian_Coordinates.svg.png">
-			<b>Pictured</b>: the Cartesian plane, or coordinate system. The space where we project visual representations of 2 (or less) dimension curves as well as our irrational hatred of calculus.
+			<b>Pictured</b>: the Cartesian plane, or coordinate system. The space where we project visual representations of curves, lines, and shapes in 2 (or less) dimensions, as well as our irrational hatred of calculus.
 		</span>
 		These dots and lines are more formally called <b>vertices</b> and <b>edges</b>. In this paticular case these mazes are trees (graphs with no loops) and therefore:
 		<blockquote> Mazes &#65515; Trees &#65515; Graphs. </blockquote>
@@ -54,10 +54,22 @@
 		<li>Add: <pre>location = x + offset</pre></li>
 	</ol>
 	
-	
 	<h3>Eller's Algorithm</h3>
 	<p>
 		This algorithm is extremely <a href="https://en.wikipedia.org/wiki/Big_O_notation" target="_blank">efficient</a>. The process is practically instantaneous in the browser environment and it moves in  a linear fashion from top to bottom. Eller's algorithm is based on the idea of mapping cells in the maze to sets and then merging these sets together when connections are (randomly) established between disjoint sets.
+	</p>
+
+	<ol>
+		<li>Initialize the first row with new sets</li>
+		<li>Randomly connect verticies that belong to different sets (add the east edge)</li>
+		<li>Randomly add south edges to <b>at least one</b> vertex for each set</li>
+		<li>Initialize next row's verticies with new sets if they are not connected to a vertex above, otherwise use the sets from the vertex above</li>
+		<li>Repeat steps 2-4 until you reach the last row</li>
+		<li>In our final row, connect every vertex that belongs to different sets</li>
+	</ol>
+	
+	<p>
+		This produces a tree that includes each node once. We call this a spanning tree. This tree is essentially equivalent to a maze.
 	</p>
 	<figure>
 		<canvas id="eller-graph" width="916" height="916" style="background-color: white;"></canvas>
