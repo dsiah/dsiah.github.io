@@ -57,6 +57,14 @@
 		<li>Add: <pre>location = x + offset</pre></li>
 	</ol>
 	
+	<p>
+		There's another clever trick for representing edges. Remember those numbers that we assigned N/S/W/E to? If not here it is again: <b>North (1), South (2), West (4), East (8)</b>.
+		Using the powers of two we can represent a bunch of edges as the sum of the numbers that represent each edge. 
+	</p>
+	<p>
+		For example, 9 would mean the edges of this vertex would be East (8) and North (1). All we need to do is check to see if the sum is larger than the edges starting from East and moving to North. If the sum is larger we know the edge exists and we subtract from the "edge sum".  The reason this works is because each sum between 0 and 15 can only be represented one way in this process. This may seem familiar because it the same exact process we use encode numbers in binary or Base-2 representation.
+	</p>
+	
 	<h3>Eller's Algorithm</h3>
 	<p>
 		This algorithm is extremely <a href="https://en.wikipedia.org/wiki/Big_O_notation" target="_blank">efficient</a>. The process is practically instantaneous in the browser environment and it moves in  a linear fashion from top to bottom. Eller's algorithm is based on the idea of mapping cells in the maze to sets and then merging these sets together when connections are (randomly) established between disjoint sets.
@@ -74,10 +82,12 @@
 	<p>
 		This produces a tree that includes each node once. We call this a spanning tree. This tree is essentially equivalent to a maze.
 	</p>
+
 	<figure>
 		<canvas id="eller-graph" width="916" height="916" style="background-color: white;"></canvas>
 		<span class="marginnote"> <b>Pictured</b>: Same maze, different representation</span>
 	</figure >
+
 	<script type="text/javascript" src="fset.js"></script>
 	<script type="text/javascript" src="d3.v3.min.js"></script>
 	<script type="text/javascript" src="maze.js"></script>
