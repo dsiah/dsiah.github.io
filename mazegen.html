@@ -23,15 +23,38 @@
 			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/2D_Cartesian_Coordinates.svg/376px-2D_Cartesian_Coordinates.svg.png">
 			<b>Pictured</b>: the Cartesian plane, or coordinate system. The space where we project visual representations of 2 (or less) dimension curves as well as our irrational hatred of calculus.
 		</span>
-		They are more formally called <b>vertices</b> and <b>edges</b>. In this paticular case these mazes are trees (graphs with no loops) and therefore:
+		These dots and lines are more formally called <b>vertices</b> and <b>edges</b>. In this paticular case these mazes are trees (graphs with no loops) and therefore:
 		<blockquote> Mazes &#65515; Trees &#65515; Graphs. </blockquote>
 	</p>
 
 	<p>
 		Graphs are very useful for real world problems. These algorithms are integral to logistics, biology, language, and even <a href="https://www.youtube.com/watch?v=Ylare5LoDdE" target="_blank">search engines</a>. So in this sense graphs are pretty cool.
 	</p>
+	
+	<p>
+		A maze is a specific type of graph where each vertice is either connected to its North neighbor (1), South neighbor (2), West neighbor (4), East neighbor (8), or any combonation of N/S/W/E. However, there are some limitations to our definition of mazes. First, a maze must be a tree meaning there will be no loops in the graph. Second, a maze will have no vertex which are not accessible from any other vertex.
+	</p>
 
+	<p>
+		Knowing this we can encode the maze as a matrix of edges. If we arrange the cells in an ordered grid it might make sense to create a 2D Matrix containing each cell's edges. This is a good starting point, but we can streamline this with some <i>clever tricks</i>.
+	</p>
 
+	<p>
+		2D Matrices can be rewritten as 1D Matrices (or Vectors (or Arrays)).
+		If we had a 4x4 Matrix, this could be converted into a Vector containing 16 values.
+		Almost all programming languages index their arrays at 0 so this vector would contain the indices 0 - 15.
+		How do we transition between 2D coordinates and the single dimension coordinates of the cell? 
+		Easy, given (x, y, n) where x is the column-number and y is row-number and n is the length of the side of the matrix.
+	</p>
+
+	<pre>location = (n * y) + x</pre>
+	<p>Breakdown:</p>
+	<ol>
+		<li>Calculate: <pre>offset = y * n</pre></li>
+		<li>Add: <pre>location = x + offset</pre></li>
+	</ol>
+	
+	
 	<h3>Eller's Algorithm</h3>
 	<p>
 		This algorithm is extremely <a href="https://en.wikipedia.org/wiki/Big_O_notation" target="_blank">efficient</a>. The process is practically instantaneous in the browser environment and it moves in  a linear fashion from top to bottom. Eller's algorithm is based on the idea of mapping cells in the maze to sets and then merging these sets together when connections are (randomly) established between disjoint sets.
