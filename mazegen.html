@@ -1,11 +1,12 @@
 <html>
 <head>
 	<title>Maze Generation</title>
-	<link rel="stylesheet" type="text/css" href="tufte.css">
+	<link rel="stylesheet" type="text/css" href="libraries/tufte.css">
 </head>
 <body>
 	<h2><strong>Maze Generation</strong></h2>
 	<p><blockqote><small>David Siah</small></blockquote></p>
+	<p><a href="index.html">&#65513; Home</a></p>
 	<figure>
 		<canvas id="eller-generation" width="916" height="916" style="background-color: black;"></canvas>	
 		<span class="marginnote" style="margin-top: 10;"> 
@@ -87,11 +88,10 @@
 		<canvas id="eller-graph" width="916" height="916" style="background-color: white;"></canvas>
 		<span class="marginnote"> <b>Pictured</b>: Same maze, different representation</span>
 	</figure >
-
-	<script type="text/javascript" src="fset.js"></script>
-	<script type="text/javascript" src="d3.v3.min.js"></script>
-	<script type="text/javascript" src="maze.js"></script>
-	<script type="text/javascript" src="ellers.js"></script>
-
+	
+	<script type="text/javascript" src="internal/fset.js"></script>
+	<script type="text/javascript" src="libraries/d3.v3.min.js"></script>
+	<script type="text/javascript" src="internal/maze.js"></script>
+	<script type="text/javascript" src="internal/ellers.js"></script>
 </body>
 </html>
