@@ -6,13 +6,26 @@
 <body>
 	<h2>Python One-Liners</h2>
 	<p><a href="index.html">&#65513; Home</a></p>
-	<p>The title is a bit of a misnomer. This is where I try to archive some tricks neat algorithms, functions, list comprehensions, etc. that have been compressed to a <a href="https://en.wikipedia.org/wiki/Code_golf">certain degree</a></p>
+	
+	<p>
+		The title is a bit of a misnomer. This is where I try to archive some tricks neat algorithms, functions, list comprehensions, etc. that have been compressed to a <a target="_blank" href="https://en.wikipedia.org/wiki/Code_golf">certain degree.</a>
+	</p>
 
-	<p>I run across tons of cool python snippets. Typically, I try to keep track of these tricks. I have split them across lines to ensure the code doesn't go off the page or to increase readibility</p>
+	<p>
+		I run across tons of cool python snippets. Typically, I try to keep track of these tricks. I have split them across lines to ensure the code doesn't go off the page or to increase readibility
+	</p>
 	
-	<pre>
-	</pre>
-	
-	<p><small>Keep in mind these are typically not mine, however if a source is not specified I have implemented it.</small></p>
+	<p> 
+		Cross product of Two Lists (Source: <a target="_blank" href="http://stackoverflow.com/a/2541422">this</a> Stack Overflow answer).
+	</p>
+	<code>cross_product = [(a, b) for a in ['a', 'b', 'c'] for b in [1, 2, 3]]</code>
+	<br/><br />
+
+	<p>
+		Primes and Composite Comprehensions (Source: <a target="_blank" href="http://www.secnetix.de/olli/Python/list_comprehensions.hawk">Secnetix)</a>
+	</p>
+	<code>no_primes = { j for i in range(2, int(100 ** 0.5)) for j in range(i * 2, 100, i) }</code>
+	<br/><br />
+	<code>primes = { p for p in range(100) if p not in no_primes }</code>
 </body>
 </html>
