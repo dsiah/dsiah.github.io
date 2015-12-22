@@ -1,0 +1,38 @@
+img {
+	padding-right: 20px;
+	padding-bottom: 20px;
+	padding-top: 10px;
+}
+
+.highlighted {
+	background-color: limegreen;
+	color: white;
+}
+
+table {
+	width: 55%;
+	height: 55%;
+	border: solid 1px !important;
+	vertical-align: middle !important;
+	text-align: middle;
+	border-collapse: collapse;
+}
+
+td {
+	vertical-align: middle !important;
+	text-align: middle;
+	min-width: 20px;
+	min-height: 30px;
+}
+
+table td{
+	border:1px solid black;
+}
+
+tr {
+	border-style: solid 1px !important;
+}
+
+pre.math {
+	margin-left: 20%;
+}

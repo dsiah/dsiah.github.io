@@ -1,0 +1,132 @@
+<html>
+<head>
+	<title>Path Finding</title>
+	<link rel="stylesheet" type="text/css" href="libraries/tufte.css">
+	<link rel="stylesheet" type="text/css" href="static/main.css">
+</head>
+<body>
+	<h2><strong>Connection between Pascal's Triangle and Path Finding</strong></h2>
+	<p><blockqote><small>David Siah</small></blockquote></p>
+	<p><a href="index.html">&#65513; Home</a></p>
+
+	<h2>Path Finding</h2>
+	
+	<figure>
+		<img src="http://people.hsc.edu/faculty-staff/blins/pascal.png">
+		<small>Source: <a href="http://people.hsc.edu/faculty-staff/blins/pascal.png"> Hampen-Sydney College</a> </small>
+	</figure>
+
+	<p>
+		When Dynamic Programming is introduced there are a mixed bag of problems that allow for excellent speed-ups in computation. For example, the Fibonacci series can be computed and cached incrementally so that each computation is a sum of the two previous cached numbers. 
+	</p>
+
+	<p>
+		From an outsiders point of view this may seem so trivial as to make them think, how were you doing this before?
+		However the problem that usually results in an 'Ah-Ha!' moment is called the Path Finding problem. 
+	</p>
+
+	<p>
+		You are given a grid of square dimensions <b>n by n</b>.
+		<br /> 
+		And we place a robot in the top left corner. This robot can only move down or right and we want to know how many ways that robot can get from the top left-corner to the bottom-right corner.
+	</p>
+
+	<table>
+	  <tr>
+	    <td class="highlighted">1</td>
+	    <td>1</td> 
+	    <td>1</td>
+	    <td>1</td>
+	    <td>1</td>
+	  </tr>
+	  <tr>
+	    <td>1</td>
+	    <td class="highlighted">2</td> 
+	    <td>3</td>
+	    <td>4</td>
+	    <td>5</td>
+	  </tr>
+	  <tr>
+	    <td>1</td>
+	    <td>3</td> 
+	    <td class="highlighted">6</td>
+	    <td>10</td>
+	    <td>5</td>
+	  </tr>
+	  <tr>
+	    <td>1</td>
+	    <td>4</td> 
+	    <td>10</td>
+	    <td class="highlighted">20</td>
+	    <td>35</td>
+	  </tr>
+	  <tr>
+	    <td>1</td>
+	    <td>5</td> 
+	    <td>15</td>
+	    <td>35</td>
+	    <td class="highlighted">70</td>
+	  </tr>
+	</table>
+
+	<p>
+		This grid can be computed very easily and with a few optimizations we can compute the grid by holding only two rows in memory, the previous row and the current row. In python the algorithm looks like this:
+
+		<pre style="background-color: white">
+def path_finding(n):
+  """
+  Path-Finding-Robot
+
+  1   1   1   1  .  .  .        
+  1   2   3   4  .  .  . 
+  1   3   6  10  .  .  .
+  1   4  10  20  .  .  .
+  .   .   .   .
+  .   .   .   .
+  .   .   .   .
+  
+  Depicted above: "Up and Left Sum Grid" 
+  for 3x3 square paths.
+  """
+  
+  row = [1] * (n + 1)         # Initialize first row's values
+  for j in xrange(1, n + 1):
+    n_row = [1]               # Initialize next row's first value
+    
+    for i in xrange(1, n+1):
+      left = n_row[i - 1]     # Last value (Left)
+      up   = row[i]           # Above value (Up)
+      n_row.append(left + up) # Sum of paths from left and paths from up
+    row = n_row
+      
+  return n_row[-1]            # Return last value (bottom right corner)
+		</pre>
+	</p>
+
+	<p>
+		But theres an even faster way to generate the nth row. The grid can be reoriented -90 degrees and the result is Pascal's triangle. Pascal's triangle is actually generated using a closed-form sequence of binomial coefficients. We can generate the nth row using the binomial series which is the row number (starting from 0). Each row is the series of numbers resulting from row number choose 0 through row number choose row number and it just so happens that the <i>row number + 1 is the number of elements in each row </i>. 
+	</p>
+
+	<p>
+		For example the 5th row (indexed at 4) would be:
+		<pre>4 choose 0    4 choose 1   4 choose 2    4 choose 3     4 choose 4</pre>
+		<pre>     1             4            6             4              1    </pre>
+	</p>
+
+	<p>
+		And in the even indexed rows, the middle number is the bottom right corner for the <b>n by n</b> grid.
+		A quick refresher: the n choose k formula can be computed as:
+		<pre class="math">     n!    </pre>
+		<pre class="math">___________</pre>
+		<pre class="math">k! * (n-k)!</pre>
+	</p>
+
+	<p>
+		And the middle most number lies in the <b>nth place</b> in the row. We calculate the row indexed at <b>n * 2</b> and then we calculate the nth element in that sequence (or row).
+		<pre class="math">    (2n)!          (2n)!  </pre>
+		<pre class="math">____________  =  _________</pre>
+		<pre class="math">n! * (2n-n)!      n! * n! </pre>
+	</p>
+
+</body>
+</html>
