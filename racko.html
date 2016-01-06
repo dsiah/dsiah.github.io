@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title>Real Time Rack-O</title>
+	<link rel="stylesheet" type="text/css" href="libraries/tufte.css">
+	<link rel="stylesheet" type="text/css" href="static/main.css">
+</head>
+<body>
+	<h2><strong>Implementing Real Time Rack-O</strong></h2>
+	<p><blockqote><small>David Siah</small></blockquote></p>
+	<p><a href="index.html">&#65513; Home</a></p>
+
+	<h2>The Rules of Rack-O</h2>
+	<img src="http://assets.fontsinuse.com/static/use-media-items/28/27556/full-1262x1023/56701a97/image.jpeg?resolution=0" width="631" height="511" />
+
+	<p>
+		About a year ago my friends and I discovered a weird card game called Rack-O. Each player has a hand of cards that they must <b>sort</b>. The catch is that they can only move <b>one card per turn</b>, in one of two ways:
+	</p>
+
+	<ol>
+		<li>
+			Take a card from the deck, swapping it with one card from their hand, and placing the old card in the discard pile.
+		</li>
+		<li>
+			Take the top card from the discard pile, swap it with one card from their hand, and place the old card in the discard pile face up.
+		</li>
+	</ol>
+
+	<p>
+		Order can be established in any sort of way but traditionally the players each take a card, the lowest card designates the dealer and the player to the left of the dealer starts. The game starts with one card being turned over onto the discard pile.
+	</p>
+
+	<h2>Design Decisions</h2>
+
+	<p>
+		I have begun prototyping the game engine in python, it's a relatively simple concept that translates well to Object Oriented structure. For example a <b>Deck</b> has <b>Cards</b> and a <b>Player</b> has a hand which has <b>Cards</b>. The real fun comes with implementing this game in real time. I would like to take this game engine and place it at the heart of an asynchronous web server that can host a game and broadcast changes. Right now the greatest challenge is how I will prevent players from inspecting the state of other players hands. With a web server I can distribute each hand to the client preventing them from seeing the entire state of the game, but I have decided to hold off on making this decision until I complete some research on distributed games. 
+	</p>
+
+	<p>
+		Ideally I would like this game to be simultaneously mobile and browser based. Most of the inspiration comes from what I like to call "distributed games" in which people can connect to each other's devices and play between a network. My favorite example in recent memory is a game called Space Team. But the main hinderance is that a connection mustbe opened between client and server instead of a simple network from device to device.
+	</p>
+
+	<p>
+		Currently I am thinking of using a framework like <a href="http://socket.io/">socket.io</a> to open socket connections to a server which would distribute the game information appropriately but there may be a more elegant solution...
+	</p>
+
+	<p>My progress can be tracked here: <a href="https://github.com/dsiah/Clone-O">Github</a></p>
+
+</body>
+</html>
