@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>Path Finding</title>
+
 	<script type="text/x-mathjax-config">
 	  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 	</script>
@@ -10,9 +11,11 @@
 	
 	<link rel="stylesheet" type="text/css" href="libraries/tufte.css">
 	<link rel="stylesheet" type="text/css" href="static/main.css">
+
 	<link rel="stylesheet" type="text/css" href="static/monokai-sublime.css">
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
+	
 </head>
 <body>
 
@@ -110,7 +113,7 @@ def path_finding(n):
     row = n_row
       
   return n_row[-1]            # Return last value (bottom right corner)
-  
+
 </code></pre>
 	</p>
 
@@ -120,8 +123,6 @@ def path_finding(n):
 
 	<p>
 		For example the 5th row (indexed at 4) would be:
-
-		<!-- <pre>     1             4            6             4              1    </pre> -->
 
 		$$ {}_4C_0\, \space\space \,{}_4C_1\, \space\space \,{}_4C_2\, \space\space \,{}_4C_3\, \space\space \,{}_4C_4  $$
 		$$ 1 \qquad 4 \qquad 6 \qquad 4 \qquad 1 $$ 

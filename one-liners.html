@@ -2,6 +2,10 @@
 <head>
 	<title>Python One-Liners</title>
 	<link rel="stylesheet" type="text/css" href="libraries/tufte.css">
+
+	<link rel="stylesheet" type="text/css" href="static/monokai-sublime.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
 	<h2>Python One-Liners</h2>
@@ -18,14 +22,13 @@
 	<p> 
 		Cross product of Two Lists (Source: <a target="_blank" href="http://stackoverflow.com/a/2541422">this</a> Stack Overflow answer).
 	</p>
-	<code>cross_product = [(a, b) for a in ['a', 'b', 'c'] for b in [1, 2, 3]]</code>
-	<br/><br />
-
+	<pre><code class="python">cross_product = [(a, b) for a in ['a', 'b', 'c'] for b in [1, 2, 3]]</code></pre>
 	<p>
 		Primes and Composite Comprehensions (Source: <a target="_blank" href="http://www.secnetix.de/olli/Python/list_comprehensions.hawk">Secnetix)</a>
 	</p>
-	<code>no_primes = { j for i in range(2, int(100 ** 0.5)) for j in range(i * 2, 100, i) }</code>
-	<br/><br />
-	<code>primes = { p for p in range(100) if p not in no_primes }</code>
+	<pre>
+	<code class="python">no_primes = { j for i in range(2, int(100 ** 0.5)) for j in range(i * 2, 100, i) }</code>
+	<code class="python">primes = { p for p in range(100) if p not in no_primes }</code>
+	</pre>
 </body>
 </html>
