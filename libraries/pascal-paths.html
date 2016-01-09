@@ -7,15 +7,11 @@
 	<script type="text/javascript" async
 	  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
 	</script>
-	
 	<link rel="stylesheet" type="text/css" href="libraries/tufte.css">
 	<link rel="stylesheet" type="text/css" href="static/main.css">
-	<link rel="stylesheet" type="text/css" href="static/monokai-sublime.css">
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
-
+When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 	<h2><strong>Connection between Pascal's Triangle and Path Finding</strong></h2>
 	<p><blockqote><small>David Siah</small></blockquote></p>
 	<p><a href="index.html">&#65513; Home</a></p>
@@ -26,6 +22,7 @@
 		<img src="http://people.hsc.edu/faculty-staff/blins/pascal.png">
 		<small>Source: <a href="http://people.hsc.edu/faculty-staff/blins/pascal.png"> Hampen-Sydney College</a> </small>
 	</figure>
+
 	<p>
 		When Dynamic Programming is introduced there are a mixed bag of problems that allow for excellent speed-ups in computation. For example, the Fibonacci series can be computed and cached incrementally so that each computation is a sum of the two previous cached numbers. 
 	</p>
@@ -82,7 +79,7 @@
 	<p>
 		This grid can be computed very easily and with a few optimizations we can compute the grid by holding only two rows in memory, the previous row and the current row. In python the algorithm looks like this:
 
-		<pre><code class="python">
+		<pre style="background-color: white">
 def path_finding(n):
   """
   Path-Finding-Robot
@@ -110,36 +107,36 @@ def path_finding(n):
     row = n_row
       
   return n_row[-1]            # Return last value (bottom right corner)
-  
-</code></pre>
+		</pre>
 	</p>
 
 	<p>
-		But theres an even faster way to generate the nth row. The grid can be reoriented -45 degrees and the result is Pascal's triangle. Pascal's triangle is actually generated using a closed-form sequence of binomial coefficients. We can generate the nth row using the binomial series which is the row number (starting from 0). Each row is the series of numbers resulting from row number choose 0 through row number choose row number and it just so happens that the <b>row number + 1 </b> is the number of elements in each row . 
+		But theres an even faster way to generate the nth row. The grid can be reoriented -90 degrees and the result is Pascal's triangle. Pascal's triangle is actually generated using a closed-form sequence of binomial coefficients. We can generate the nth row using the binomial series which is the row number (starting from 0). Each row is the series of numbers resulting from row number choose 0 through row number choose row number and it just so happens that the <i>row number + 1 is the number of elements in each row </i>. 
 	</p>
 
 	<p>
 		For example the 5th row (indexed at 4) would be:
-
-		<!-- <pre>     1             4            6             4              1    </pre> -->
-
-		$$ {}_4C_0\, \space\space \,{}_4C_1\, \space\space \,{}_4C_2\, \space\space \,{}_4C_3\, \space\space \,{}_4C_4  $$
-		$$ 1 \qquad 4 \qquad 6 \qquad 4 \qquad 1 $$ 
+		<pre>4 choose 0    4 choose 1   4 choose 2    4 choose 3     4 choose 4</pre>
+		<pre>     1             4            6             4              1    </pre>
 	</p>
 
 	<p>
 		And in the even indexed rows, the middle number is the bottom right corner for the <b>n by n</b> grid.
 		A quick refresher: the n choose k formula can be computed as:
-	</p>
-	<p>
-		$$ n! \over k! \thinspace (n - k)! $$
+		<pre class="math">     n!    </pre>
+		<pre class="math">___________</pre>
+		<pre class="math">k! * (n-k)!</pre>
 	</p>
 
 	<p>
-		And the middle most number lies in the <b>nth place</b> in the row. We calculate the row indexed at \(n * 2\) and then we calculate the nth element in that sequence (or row). Once we simplify our substitutions, the result is our closed form solution (with one dependent variable).
+		And the middle most number lies in the <b>nth place</b> in the row. We calculate the row indexed at <b>n * 2</b> and then we calculate the nth element in that sequence (or row).
+		<pre class="math">    (2n)!          (2n)!  </pre>
+		<pre class="math">____________  =  _________</pre>
+		<pre class="math">n! * (2n-n)!      n! * n! </pre>
 	</p>
-	<p>
-		$$ {2n! \over n! \thinspace (2n - n)!} = {2n! \over n! \thinspace ^ 2} $$
-	</p>
+	<script type="text/x-mathjax-config">
+  	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
 </body>
+
 </html>
