@@ -4,6 +4,10 @@ img {
 	padding-top: 10px;
 }
 
+figure {
+	max-width: 60%;
+}
+
 .highlighted {
 	background-color: limegreen;
 	color: white;

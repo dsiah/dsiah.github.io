@@ -1,0 +1,102 @@
+<html>
+	<head>
+		<title>Neural Style</title>
+		<link rel="stylesheet" type="text/css" href="libraries/tufte.css">
+		<link rel="stylesheet" type="text/css" href="static/monokai-sublime.css">\
+		<link rel="stylesheet" type="text/css" href="static/main.css">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</head>
+	<body>
+		<h2><b>A Brief Introduction to Neural Style</b></h2>
+
+		<p><a href="index.html">&#65513; Home</a></p>
+		<figure>
+		</figure>
+		<p>
+			You may recall, during the past summer researchers at Google published an open source Neural Network dubbed "Deep Dream" which would produce bizarre and even terrifying images by mysteriously embedding small objects in an input image.
+		</p>
+		<figure>
+			<span class="marginnote">
+				AI that excels at producing nightmares.
+			</span>
+			<img src="https://dl.dropboxusercontent.com/u/45750707/ddexamples.png"/>
+		</figure>
+		<p>
+			More recently, a paper was published by several physicists in Germany outlining a model for Neural Networks to learn artistic styles from one or more input images. This model was implemented using the scientific computing framework Torch and the Lua programming language. It's source and installation instructions are available <a href="">on Github</a>.
+		</p>
+
+		<h2>Installation on OSX</h2>
+
+		<p>
+			A few steps are vague or different on OSX. I will try to outline them briefly here for a Macbook Pro running Yosemite. The only thing you'll need before you begin is to install homebrew and terminal.
+		</p>
+
+		<pre>
+			<code class="bash" width="100%">
+# 1 -- navigate to user root
+cd ~/
+# 2 --  curl and execute the bash script to fetch and install torch dependencies
+curl -s https://raw.githubusercontent.com/torch/ezinstall/master/install-deps | bash
+# 3 -- grab torch from source
+git clone https://github.com/torch/distro.git ~/torch --recursive
+# 4 -- navigate to the torch folder
+cd ~/torch 
+# 5 -- run the installation scripts 
+./install.sh
+# 6 -- unless you are a open source wizard leave the installation to homebrew 
+brew install protobuf
+# 7 -- install loadcaffe using lua package manager
+luarocks install loadcaffe
+# 8 -- return to root
+cd ~/
+# 9 -- clone the neural style repository
+git clone https://github.com/jcjohnson/neural-style.git
+# 10 -- enter the repo
+cd neural-style
+# 11 -- download the pretrained NN models and you're done!
+sh models/download_models.sh
+			 </code>
+		</pre>
+
+		<p>After these steps are complete you can run the program.</p>
+
+		<h2>What goes in?</h2>
+		<p>
+			The repo comes with several good images for style extraction including The Scream and Starry Night which produced excellent results. However, you can bring in other images and combine input images to produce mixed styles.
+		</p>
+		<p><b>You will need:</b></p>
+		<ul>
+			<li>An image to manipulate</li>
+			<li>Image(s) to extract styles from</li>
+			<li>Patience or a powerful computer</li>
+		</ul>
+		<p>A sample command to run the program would look like:</p>
+
+		<pre>
+			<code class="bash">
+th neural_style.lua -gpu -1 -style_image ./examples/inputs/starry_night.jpg -content_image ./examples/inputs/mine/pitt_scape.jpg -image_size 256 -output_image pitt_van_g.png -model_file ./models/VGG_ILSVRC_19_layers.caffemodel -print_iter 1 -style_scale 0.5
+			</code>
+		</pre>
+
+		<p>
+			An explanation for the flags is available in the repository  <a href="https://github.com/jcjohnson/neural-style#usage">here</a>. If you are running this on a CPU it will take a decent amount of time and you're laptop may get a bit toasty so remember to run it in a cool space and monitor the power usage so you don't do anything foolish to your computer.
+		</p>
+
+		<h2>What Comes Out?</h2>
+
+		<p>I was pretty pleased with the results of the CPU jobs.</p>
+
+		<figure>
+			<img src="static/starry_me_sheet.png" >
+			<caption>7 iterations on Starry Night</caption>
+		</figure>
+
+		
+
+		<figure>
+			<img src="static/scream_sheet.png">
+			<caption>10 iterations on The Scream</caption>
+		</figure>
+	</body>
+</html>
