@@ -13,7 +13,13 @@ figure {
 	color: white;
 }
 
-table {
+.list {
+	font-size: 22px;
+	text-align: left;
+	margin-left: 30px;
+}
+
+table.grid {
 	width: 55%;
 	height: 55%;
 	border: solid 1px !important;
@@ -26,14 +32,18 @@ p {
 	width: 65%;
 }
 
-td {
+td.grid {
 	vertical-align: middle !important;
 	text-align: middle;
 	min-width: 20px;
 	min-height: 30px;
 }
 
-table td{
+table.list td {
+	max-width: 130px;
+}
+
+table.grid td{
 	border:1px solid black;
 }
 
