@@ -1,0 +1,104 @@
+<html>
+<head>
+	<title>Recommended Albums</title>
+	<link rel="stylesheet" type="text/css" href="libraries/tufte.css">
+	<link rel="stylesheet" type="text/css" href="static/main.css">
+	<script src="libraries/d3.v3.min.js"></script>
+	<style>
+	#showcase {
+		width: 90%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.alb {
+		width: 150px;
+		height: 175px;
+		margin: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	div.tooltip {      
+		margin: 2px;     
+		padding: 2px;                    
+		border: 0px;            
+		pointer-events: none;
+		text-align: center;    
+	}
+
+	img {
+		width: 120px;
+		height: 120px;
+		padding: 0 0 0 0;
+	}
+
+	</style>
+</head>
+<body>
+	<h2><strong>Recommended Albums</strong></h2>
+	<p><blockqote><small>David Siah</small></blockquote></p>
+	<p><a href="index.html">&#65513; Home</a></p>
+	<div id="showcase"></div>
+
+	<script>
+	var all_albums = [], count = 0;
+
+	d3.json('album-info/albums1.json', function(data) {
+		Array.prototype.push.apply(all_albums, data.items);
+		count++;
+		exec(all_albums, count);
+	});
+
+	d3.json('album-info/albums2.json', function(data) {
+		Array.prototype.push.apply(all_albums, data.items);
+		count++;
+		exec(all_albums, count);
+	});
+
+	d3.json('album-info/albums3.json', function(data) {
+		Array.prototype.push.apply(all_albums, data.items);
+		count++;
+		exec(all_albums, count);
+	});
+
+	function exec(data, count) {
+		if (count < 3) return; // not ready to display
+		
+		var albums = data, curr = null;
+		var ip = d3.select('#showcase');
+
+		for (var i = 0; i < albums.length; i++) {
+			curr = albums[i].album;
+
+			var content = d3.select('#showcase')
+							.append('div')
+							.attr('class', 'alb');
+
+			content.append('img')
+				   .attr('src', curr.images[0].url)
+				   .attr('height', 120)
+				   .attr('width',  120)
+				   .on('mouseover', function() {
+				    	d3.select(this.nextElementSibling)
+				    	  .transition(100)
+				    	  .style('opacity', 0.9);
+				    	
+				    })
+				   .on('mouseout', function() {
+						d3.select(this.nextElementSibling)
+						  .transition(100)
+						  .style('opacity', 0);
+				   });
+
+			content.append("div")   
+				    .attr("class", "tooltip")     
+				    .text(curr.name + ' by ' + curr.artists[0].name)          
+				    .style("opacity", 0);			
+		}
+	}
+
+	</script>
+</body>
+</html>
