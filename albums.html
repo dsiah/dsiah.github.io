@@ -20,6 +20,13 @@
 		align-items: center;
 	}
 
+	.alb:hover {
+		background: url('static/play2.png');
+		background-size: 120px 120px;
+		background-position: center top;
+		background-repeat: no-repeat;
+	}
+
 	div.tooltip {      
 		margin: 2px;     
 		padding: 2px;                    
@@ -40,8 +47,6 @@
 	<h2><strong>Recommended Albums</strong></h2>
 	<p><blockqote><small>David Siah</small></blockquote></p>
 	<p><a href="index.html">&#65513; Home</a></p>
-
-	<p>Note:<i> this display was created with D3.js and the Spotify Web API (saving cURL requests to compile the JSON data from my saved Album endpoint)</i></p>
 	
 	<div id="showcase"></div>
 
@@ -83,22 +88,36 @@
 				   .attr('src', curr.images[0].url)
 				   .attr('height', 120)
 				   .attr('width',  120)
+				   .attr('spotlink', curr.external_urls.spotify)
 				   .on('mouseover', function() {
 				    	d3.select(this.nextElementSibling)
 				    	  .transition(100)
 				    	  .style('opacity', 0.9);
+
+				    	d3.select(this)
+				    		.transition(100)
+				    		.style('opacity', 0.350);
 				    	
 				    })
 				   .on('mouseout', function() {
 						d3.select(this.nextElementSibling)
 						  .transition(100)
 						  .style('opacity', 0);
+
+						d3.select(this)
+				    		.transition(100)
+				    		.style('opacity', 1.0);
+
+				   })
+				   .on('click', function() {
+				   		window.open(this.getAttribute('spotlink'), '_blank');
 				   });
 
 			content.append("div")   
 				    .attr("class", "tooltip")     
 				    .text(curr.name + ' by ' + curr.artists[0].name)          
-				    .style("opacity", 0);			
+				    .style("opacity", 0);
+
 		}
 	}
 
