@@ -8,7 +8,7 @@ var tableau = {
 function scrollById() {
 	var dest = tableau[this.id];
 	document.getElementById(dest).scrollIntoView({
-		block: "end", behavior: "smooth"
+		block: "start", behavior: "smooth"
 	});
 }
 
