@@ -2,7 +2,6 @@
 	padding-right: 20px;
 	padding-bottom: 20px;
 	padding-top: 10px;
-	
 	min-height: 250px;
 	max-height: 250px;
 	min-width: 210px;
@@ -22,6 +21,7 @@ figure {
 	font-size: 22px;
 	text-align: left;
 	margin-left: 30px;
+	width: 49%;
 }
 
 table.grid {
@@ -46,6 +46,7 @@ td.grid {
 
 table.list td {
 	max-width: 130px;
+	padding-top: 5px;
 }
 
 table.grid td{
@@ -71,4 +72,28 @@ pre.math {
 .center-line > a {
 	margin-left: 25px;
 	background: none;
+}
+
+#float-index {
+	position: fixed;
+	right: 0px;
+	top: 30px;
+	width: 25%;
+}
+
+.toc-item {
+	padding: 8px 0px 8px 35px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.toc-item:hover {
+	border-left: solid 2px black;
+}
+
+.icon {
+	max-width: 32px;
+	min-width: 32px;
+	max-height: 32px;
+	min-height: 32px;
 }

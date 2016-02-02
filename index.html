@@ -8,29 +8,43 @@
 <body>
 	<h3>David Siah</h3>
 
-	<p><b>About Me</b></p>
+	<div id="float-index">
+		<h3 style="margin-bottom: 10px;"><b>Contents</b></h3>
+		<div id="am-hop" class="toc-item">About Me</div>
+		<div id="r-hop" class="toc-item">Resume</div>
+		<div id="c-hop" class="toc-item">Collections</div>
+		<div id="t-hop" class="toc-item">Thoughts</div>
+	</div>
+
+	<p id="am-block"><b>About Me</b></p>
 	<img class="propic" src="static/Me.jpg" height="250" style="float:left; margin-right: 15px; border-radius:3px;">
 	<p>
-		I am a undergraduate studying Computer Science at Villanova University. I am currently writing the site, I plan to add new content weekly.
+		I am a undergraduate studying Computer Science at Villanova University. I am in the process of building this site and add content on a weekly basis.
 	</p>
 
 	<p>
 		I have a loudly professed appreciation for Wikipedia, Programming Languages, Art, and other information that is easily serialized.
 	</p>
-	<p>In the past, I have worked in several different domains including: Artificial Neural Networks, Web Development, Signal Processing, and Natural Language Processing. If you'd like, you may take a peek at my 
+
+	<p>
+		In the past, I have worked in several different domains including: Artificial Neural Networks, Web Development, Signal Processing, and Natural Language Processing. 
+	</p>
+
+	<p id="r-block">
+		If you'd like, you may take a peek at my 
 		<a href="static/ResumeSiah5.pdf" target="_blank">Resume</a> (<i>Last Updated 12/2/15</i>).
 	</p>
 
 	<div class="center-line">
 		<a href="https://www.linkedin.com/in/dsiah" target="_blank">
-			<img src="static/linkedin.png" width="32" height="32" />
+			<img class="icon" src="static/linkedin.png" />
 		</a>
 		<a href="https://github.com/dsiah" target="_blank">
-			<img src="static/ghlogo.png" width="32" height="32" />
+			<img class="icon" src="static/ghlogo.png" />
 		</a>
 	</div>
 
-	<p><b>Collections</b></p>
+	<p id="c-block"><b>Collections</b></p>
 	<table class="list">
 		<tr>
 			<td><i>January 26th, 2016</i></td>
@@ -46,7 +60,7 @@
 		</tr>
 	</table>
 
-	<p><b>Thoughts</b></p>
+	<p id="t-block"><b>Thoughts</b></p>
 	<table class="list">
 		<tr>
 			<td><i>January 9th, 2016</i></td>
@@ -66,6 +80,7 @@
 		</tr>
 	</table>
 
+	<script src="internal/scroller.js"></script>
 	<!-- Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away — Antoine de Saint-Exupery -->
 </body>
 </html>
