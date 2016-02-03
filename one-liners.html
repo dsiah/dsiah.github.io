@@ -30,5 +30,13 @@
 	<code class="python">no_primes = { j for i in range(2, int(100 ** 0.5)) for j in range(i * 2, 100, i) }</code>
 	<code class="python">primes = { p for p in range(100) if p not in no_primes }</code>
 	</pre>
+
+	<p>This one is pretty neat, according to the base it will produce every single 3 digit number in that base as a pair (base 10 value, list of the three digits)</p>
+	<pre>
+		<code>based = 8
+digits = {(a * based**2 + b * based**1 + c * based**0):[a,b,c] 
+		for a in range(based) for b in range(based) for c in range(based)}</code>
+	</pre>
+
 </body>
 </html>
