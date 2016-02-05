@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Python Crash Course</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="static/css/reveal.css">
+		<link rel="stylesheet" href="static/css/theme/white.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="static/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'static/css/print/pdf.css' : 'static/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="static/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<h1>Welcome!</h1>
+					<h4>to a crash course in Python programming</h4>
+					<img src="https://s3.amazonaws.com/webassets.ticketmob.com/TM/images/ShowPosters/3B1C5D95-9390-9E27-29037A3B24CD4325.jpg" height="65%" width="65%"/>
+					<p>(i am david)</p>
+				</section>
+
+				<section>
+					<h2>Why Python</h2>
+					<p>RaspberryPi | Websites | Search Engines | Web Crawlers | Twitter Applications | Small Games | Math | Scientific Computing | Arduino | <a href="http://i1.wp.com/blog.udacity.com/wp-content/uploads/2015/05/How-to-Choose-Your-First-Programming-Language%E2%80%93Udacity.jpg?zoom=2&resize=667%2C2959" target="_blank">more</a></p>
+				</section>
+
+				<section>
+					<h2><a href="https://www.quora.com/Which-Internet-companies-use-Python">Who uses Python</a></h2>
+				</section>
+
+				<section>
+					<h2>Setting Up Python (2.x)</h2>
+					<p>For now: <a href="https://repl.it/languages/python" target="_blank">Online</a></p>
+					<p>Windows: (link here for 64 bit computers)</p>
+					<p>OSX: (link here for dmg)</p>
+					<p>Linux: chill</p>
+					<img src="https://octodex.github.com/images/pythocat.png" width="30%" height="30%"/>
+				</section>
+
+				<section>
+					<h2>Ways to run python</h2>
+					<p>1. REPL</p>
+					<p>2. Programs</p>
+				</section>
+
+				<section>
+					<h2>Test that it worked</h2>
+					<p>Please type (avoid copy-paste)</p>
+					<pre><code class="hljs">print('Hello World')</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h2>Variables</h2>
+						<p>what our computer recognizes and what we can use to represent our ideas</p>
+						<img src="https://courses.cs.vt.edu/csonline/ProgrammingLanguages/Lessons/Identifiers/var_and_city.gif">
+					</section>
+
+					<section>
+						<h4>We'll talk about</h4>
+						<ul> 
+							<li>Numbers</li>
+							<li>Strings</li>
+							<li>Booleans</li>
+							<li>Lists</li>
+							<li>Dictionaries</li>
+						</ul>
+
+					</section>
+
+					<section>
+						Number (integer)<code class="hljs">1</code>
+					</section>
+					
+					<section>
+						String<code class="hljs">'two'</code>
+					</section>
+
+					<section>
+						Booleans<code class="hljs">True | False</code>
+					</section>
+					
+					<section>
+						List<code class="hljs">['A', 'B', 'C']</code>
+					</section>
+
+					<section>
+						Dictionary<code class="hljs">{name: 'Barack Obama', age: 54}</code>
+					</section>
+
+					<section>
+						<img src="http://www.clker.com/cliparts/f/7/a/d/13582845571765012778Lightning%20Bolt.svg.med.png" height="80" width="80"><h2>Exercises</h2>
+						<ul>
+							<li>Create a list of pets</li>
+							<li>Create a list of family member where each family member is a dictionary</li>
+							<li>Add to a variable (number)</li>
+							<li>Get a value from a list by its index</li>
+							<li>Get a value from a dictionary by its key</li>
+							<li>Create a list of lists</li>
+							<li>Create a list of unordered numbers and then used then use the sort function ex. <pre><code class="hljs">sort([3,4,1,2,17,22,1])</code></pre></li>
+						</ul>
+
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Functions</h2>
+						<img src="http://d3imyo1kk0rcam.cloudfront.net/wp-content/uploads/2011/11/c9fa833d2c2274369737f0135a90985a1927635791.png" alt="">
+
+						<p>No wait not those functions!</p>
+					</section>
+
+					<section>
+						<h2>Instead</h2> 
+						<p>stuff goes in</p> 
+						<img src="https://upload.wikimedia.org/wikibooks/en/b/b8/Apple_slicing_function.png" alt="">
+						<p>stuff comes out</p>
+					</section>
+
+					<section>
+						<h2>An example</h2>			
+						<pre><code class="hljs">def add_five(num):
+	return num + 5</code></pre>
+					</section>
+
+					<section>
+						What's it made of 
+						<pre><code class="hljs">def {name_of_function}({arg}, {arg2}):
+	# this is a comment
+	# do stuff here
+					</code></pre>
+					</section>
+
+					<section>
+						<img src="http://www.clker.com/cliparts/f/7/a/d/13582845571765012778Lightning%20Bolt.svg.med.png" height="80" width="80"><h2>Exercises</h2>
+						<ul>
+							<li>Create a function that prints a word 10 times</li>
+							<li>Create a function that prints a triangle of '*' stars</li>
+							<li>Create a function that prints the larger of two numbers</li>
+							<li>Create a function that prints the larger of two words</li>
+							<li>Create a function that gets the maximum number in a list of numbers</li>
+						</ul>
+
+					</section>
+				</section>
+
+				<section>
+					<h2>Imports</h2>
+					<pre><code class="hljs">import random
+
+print random.randrange(6)</code></pre>
+					<p><a href="https://docs.python.org/2/">More Goodies</a></p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Control Flow</h2>
+						<p>The way our computer programs execute (it not always linear)</p>
+					</section>
+
+					<section>
+						<h4>We'll talk about </h4>
+						<ul> 
+							<li>If Statements</li>
+							<li>While Loops</li>
+							<li>For Loops</li>
+						</ul>
+					</section>
+
+					<section>
+						if / elif / else 
+						<pre><code class="hljs">if 5 > 10:
+	print('5 is most definitely not greater than 10')
+elif 5 > 7:
+	print('Keep trying')
+else:
+	print('Well you got this far')
+
+						</code></pre>
+					</section>
+					
+					<section>
+						While Loops
+						<pre><code class="hljs" data-trim contenteditable>
+forecast = ['rainy', 'rainy', 'rainy', 'sunny']
+day = 0
+while (forecast[day] == 'rainy' and day < len(forecast)):
+	print "Don't forget you're umbrella"
+	day += 1</code></pre>
+					</section>
+					
+					<section>
+						For Loops 
+
+						<pre><code class="hljs" data-trim contenteditable>
+for i in [1,2,3,4,5]:
+	print(i)</code></pre>
+					</section>
+					
+					<section>
+					<img src="http://www.clker.com/cliparts/f/7/a/d/13582845571765012778Lightning%20Bolt.svg.med.png" height="80" width="80">
+					<h2>Exercises</h2>	
+						<ul>
+							<li>find out what this does<pre><code class="hljs">range(10)</code></pre></li>
+							<li>Create the list of numbers from 1 to 1000000 lookup python's range()</li>
+							<li>Learn how to use range with the step value</li>
+							<li>Create a loop that prints each number from 1 - 1000 by 5s</li>
+							<li>Create a for loop from 1 to 1000 that prints a number if it is divisible by 3</li>
+						</ul>
+					</section>
+				</section>
+
+
+				<section>
+				
+					<section>
+						<h2>Closing Notes</h2>
+						<img src="https://s-media-cache-ak0.pinimg.com/564x/85/24/86/852486dc2d97d87a6605da50d9a8d722.jpg" >
+					</section>
+					
+					<section>
+						<h2>Resources</h2>
+						<img src="http://ecx.images-amazon.com/images/I/51gLdcig8QL.jpg">
+						<p><a href="http://learnpythonthehardway.org/">Learn Python the Hard Way</a> a Free online book</p>
+					</section>
+
+					<section>
+						<p>Python<a href="http://codingbat.com/python"> Exercises</a></p>
+						<img src="http://ww1.prweb.com/prfiles/2012/12/07/10216809/gI_114072_Funny-Exercise.jpg" >
+						<p>Install python & pip on your own machine and <a href="https://docs.python.org/2/py-modindex.html">discover new python libraries and modules</a></p>
+
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="static/lib/js/head.min.js"></script>
+		<script src="libraries/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'static/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'static/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'static/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'static/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'static/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
