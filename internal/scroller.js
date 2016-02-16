@@ -3,6 +3,7 @@ var tableau = {
 	'r-hop': 'r-block',
 	'c-hop': 'c-block',
 	't-hop': 't-block',
+	'w-hop': 'w-block'
 };
 
 function scrollById() {

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Python Crash Course</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="static/css/reveal.css">
+		<link rel="stylesheet" href="static/css/theme/white.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="static/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'static/css/print/pdf.css' : 'static/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="static/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<h1>Welcome!</h1>
+					<h4>to an investigation of Git (and Github)</h4>
+					<img src="https://octodex.github.com/images/inspectocat.jpg" 
+					height="400">
+				</section>
+
+				<section>
+					<h2>Clarification</h2>
+					<h1>Git ≠ Github</h1>
+				</section>
+
+				<section>
+					<h2>So what's Git</h2>
+					<img src="https://git-for-windows.github.io/img/git_logo.png" alt="">
+					<p>Git is a Concurrent Version System (CVS)</p>
+				</section>
+
+				<section>
+					<h3>Whats a CVS</h3>
+					<p>A piece of software that allows you to track changes in software as you (and possibly others) work on a project</p>
+				</section>
+
+				<section>
+					<h3>Written by this guy</h3>
+					<img src="http://3.bp.blogspot.com/_unUpRnAfnA8/THgbstSmPfI/AAAAAAAAADM/civnFN8SYyo/s1600/linus_torvalds_penguin.jpg" height="600">
+				</section>
+
+				<section>
+					<section>
+						<h2>An Example by <a href="https://en.wikipedia.org/w/index.php?title=Villanova_University&offset=&limit=500&action=history">Field Trip</a></h2>
+
+						<img src="https://dl.dropboxusercontent.com/u/45750707/GuyStanding.png" height="500">
+					</section>
+
+					<section>
+						
+						
+					</section>
+				</section>
+
+			
+
+			</div>
+
+		</div>
+
+		<script src="static/lib/js/head.min.js"></script>
+		<script src="libraries/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'static/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'static/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'static/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'static/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'static/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
