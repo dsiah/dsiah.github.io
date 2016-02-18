@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Python Crash Course</title>
+		<title>Git Investigation</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
@@ -26,6 +26,7 @@
 		<!--[if lt IE 9]>
 		<script src="static/lib/js/html5shiv.js"></script>
 		<![endif]-->
+
 	</head>
 
 	<body>
@@ -47,18 +48,29 @@
 				</section>
 
 				<section>
+					<h2>Why would I need this?</h2>
+					<ul>
+						<li>Jobs</li>
+						<li>Collaborating</li>
+						<li>Open Source</li>
+						<li>CSC 4700</li>
+					</ul>
+				</section>
+
+				<section>
 					<h2>So what's Git</h2>
 					<img src="https://git-for-windows.github.io/img/git_logo.png" alt="">
-					<p>Git is a Concurrent Version System (CVS)</p>
+					<p>Git is a Version Control System (VCS)</p>
 				</section>
 
 				<section>
-					<h3>Whats a CVS</h3>
+					<h3>Whats a VCS</h3>
 					<p>A piece of software that allows you to track changes in software as you (and possibly others) work on a project</p>
 				</section>
+				
 
 				<section>
-					<h3>Written by this guy</h3>
+					<h3>It's written by this fellow</h3>
 					<img src="http://3.bp.blogspot.com/_unUpRnAfnA8/THgbstSmPfI/AAAAAAAAADM/civnFN8SYyo/s1600/linus_torvalds_penguin.jpg" height="600">
 				</section>
 
@@ -70,13 +82,118 @@
 					</section>
 
 					<section>
-						
-						
+						<p>Explore this click on 'prev' for a vandalism link</p>
+					</section>
+
+					<section>
+						<h2>Classic.</h2>
+						<img src="static/buttuniversity.png">
 					</section>
 				</section>
 
-			
+				<section>
+					<section>
+						<h2>Get a terminal</h2>
 
+						<p>Windows: install git & git bash</p>
+						<p>OSX: install git </p>
+					</section>
+
+					<section>
+						<h2>Useful terminal commands</h2>
+
+						<p>cd - change directory</p>
+						<p>ls - list system</p>
+						<p>pwd - print working directory</p>
+						<p>mkdir -  make directory</p>
+					</section>
+
+					<section>
+						<h2>How do I use them?</h2>
+
+						<p>cd ~ 'Go to your home directory'</p>
+						<p>cd .. 'Go up a directory'</p>
+						<p>mkdir mynewdir 'Make a folder called mynewdir'</p>
+
+					</section>
+
+				</section>
+				
+
+				<section>
+
+					<section>
+							<h3>Create a New Repo on Github</h3>
+
+					<p>
+						Scenario: You want to start a repo on github to track your work.
+					</p>
+							<pre><code class="hljs">
+git init
+
+git add . 
+
+git commit -m "My first commit" 
+
+git remote add origin http://github.com/dsiah/example-repo.git 
+
+git push -u origin master
+
+</code></pre>
+
+					</section>
+
+					<section>
+						<h3>Cloning a repo</h3>
+					<p>
+						Scenario: You have a repo on github but want to get it on your computer.
+					</p>
+						<pre><code class="hljs">
+
+git clone http://github.com/dsiah/example-repo.git 
+
+						</code></pre>
+
+					</section>
+
+					<section>
+					<h3>Getting code from github</h3>
+					
+					<p>
+						Scenario: You're working with a partner on a project simultaneously, both already cloned the repo and have work to push.
+					</p>
+
+						<pre><code class="hljs">
+
+git stash
+
+git pull
+
+git stash apply
+
+						</code></pre>
+					</section>
+
+					<section>
+						<h3>Send it to the cloud!</h3>
+						<p>
+							Scenario: You have updated work on your computer and want to put it on github.
+
+						</p>
+						<pre><code class="hljs">
+git status
+
+git add .
+
+git commit -m "all my local work is getting committed"
+
+git push
+
+						</code></pre>
+
+					</section>
+					
+				</section>
 			</div>
 
 		</div>
